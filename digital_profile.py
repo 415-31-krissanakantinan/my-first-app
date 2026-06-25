@@ -1,9 +1,8 @@
 import streamlit as st
 
-
 st.title("My Digital Profile")
 
-st.heade("สวัสดีครับ")
+st.header("สวัสดีครับ")
 st.write("นายกฤษณกันตินันท์ ณ นคร")
 st.write("ชื่อเล่นโนอา")
 st.write("เลขที่ 31 ม.4/15")
