@@ -99,11 +99,11 @@ ans2 = st.text_input(
     "ข้อ 2: Cats love to eat `f _ s h`. 🐟",
     value=st.session_state.ans2_val,
 )
-
 # อัปเดตค่าล่าสุดเข้าตัวแปร
 st.session_state.ans1_val = ans1
 st.session_state.ans2_val = ans2
-
+st.session_state.ans3_val = ans3
+st.session_state.ans4_val = ans4
 # ✏️ [พื้นที่สำหรับนักเรียน]: เพิ่มข้อ 3, 4 ตรงนี้
 ans3 = st.text_input(
     "ข้อ 3: An `b _ _ _a` a day keeps the monkey away. ",
@@ -113,7 +113,6 @@ ans4 = st.text_input(
     "ข้อ 4: horse love to eat `h _ _`. ",
     value=st.session_state.ans2_val,
 )
-
 # 4. ปุ่มส่งคำตอบ
 if "start" in st.session_state and not st.session_state.get("is_ended", False):
     if st.button("📥 ส่งคำตอบ"):
