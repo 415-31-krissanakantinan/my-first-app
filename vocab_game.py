@@ -50,29 +50,28 @@ def show_result_dialog(ans1, ans2):
     else:
         st.error(f"❌ ข้อ 2: ยังไม่ถูกต้อง (คุณตอบ '{u_ans2}')")
 
+    # ✏️ [พื้นที่สำหรับนักเรียน]: เพิ่มตรวจข้อ 3, 4 ตรงนี้
+
     # ตรวจข้อ 3
-    if u_ans1 == "apple":
+    if u_ans1 == "banana":
         st.success("✅ ข้อ 3: ถูกต้อง")
         score += 1
     else:
         st.error(f"❌ ข้อ 3: ยังไม่ถูกต้อง (คุณตอบ '{u_ans3}')")
 
      # ตรวจข้อ 4
-    if u_ans2 == "fish":
+    if u_ans2 == "hay":
         st.success("✅ ข้อ 4: ถูกต้อง")
         score += 1
     else:
         st.error(f"❌ ข้อ 4: ยังไม่ถูกต้อง (คุณตอบ '{u_ans4}')")
-
-    # ✏️ [พื้นที่สำหรับนักเรียน]: เพิ่มตรวจข้อ 3, 4 ตรงนี้
-
+    
     st.info(f"🏆 ได้คะแนนรวม: {score} คะแนน")
 
     if score == 4:
         st.success("🎉 You win!")
     else:
         st.error("💀 You lose!")
-
 
 # ----------------------------------------------------
 # 1. ปุ่มเริ่มเล่นเกม
@@ -106,7 +105,14 @@ st.session_state.ans1_val = ans1
 st.session_state.ans2_val = ans2
 
 # ✏️ [พื้นที่สำหรับนักเรียน]: เพิ่มข้อ 3, 4 ตรงนี้
-
+ans1 = st.text_input(
+    "ข้อ 1: An `b _ _ _a` a day keeps the monkey away. ",
+    value=st.session_state.ans1_val,
+)
+ans2 = st.text_input(
+    "ข้อ 2: horse love to eat `h _ _`. ",
+    value=st.session_state.ans2_val,
+)
 
 # 4. ปุ่มส่งคำตอบ
 if "start" in st.session_state and not st.session_state.get("is_ended", False):
@@ -119,9 +125,7 @@ if "start" in st.session_state and not st.session_state.get("is_ended", False):
 
 # 5. แสดง Dialog ผลลัพธ์
 if st.session_state.get("is_ended", False):
-    show_result_dialog(ans1, ans2)
+    show_result_dialog(ans1, ans2, ans3, ans4)
 
 st.divider()
 st.write("นายกฤษณกันตินันท์ ณ นคร ม.4/15")
-
-
